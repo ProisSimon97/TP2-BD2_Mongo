@@ -17,16 +17,5 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
-	@Autowired
-	PageRepository repository;
-
-	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext c) {
-		return args -> {
-
-			repository.save(new Page("Prueba", "Es una prueba", "Simon", LocalDateTime.now()));
-		};
-	}
 }
 
