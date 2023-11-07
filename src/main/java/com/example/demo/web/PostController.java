@@ -18,8 +18,8 @@ public class PostController {
     private final PostService service;
 
     @PostMapping
-    public Post create(Post post) {
-        return service.create(post);
+    public void create(Post post) {
+        service.create(post);
     }
 
     @GetMapping

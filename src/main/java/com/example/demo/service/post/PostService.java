@@ -5,7 +5,7 @@ import com.example.demo.model.Post;
 import java.util.List;
 
 public interface PostService {
-    Post create(Post post);
+    void create(Post post);
 
     List<Post> findLatest();
 }

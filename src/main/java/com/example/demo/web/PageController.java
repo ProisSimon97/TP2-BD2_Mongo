@@ -2,7 +2,6 @@ package com.example.demo.web;
 
 import com.example.demo.model.Page;
 import com.example.demo.service.page.PageService;
-import com.example.demo.web.request.PageCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +13,8 @@ public class PageController {
     private final PageService service;
 
     @PostMapping
-    public Page create(@RequestBody Page page) {
-        return service.create(page);
+    public void create(@RequestBody Page page) {
+        service.create(page);
     }
 
     @GetMapping("/{id}")

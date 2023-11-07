@@ -1,19 +1,15 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Document(collection = "page")
+@Builder
 public class Page {
-
+    private String id;
     private String title;
     private String text;
     private String author;
