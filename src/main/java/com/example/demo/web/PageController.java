@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/pages")
+@CrossOrigin
 public class PageController {
 
     private final PageService service;
