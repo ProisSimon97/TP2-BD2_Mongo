@@ -1,11 +1,13 @@
 package com.example.demo.web.request;
 
-import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 public record PageCreateRequest(
         String title,
         String text,
         String author,
-        LocalDateTime date
+        LocalDate date
 ) {
 }

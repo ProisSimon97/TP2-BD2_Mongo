@@ -1,8 +1,9 @@
-package com.example.demo.model;
+package com.example.demo.domain;
 
 import lombok.Builder;
 import lombok.Data;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -15,5 +16,5 @@ public class Post {
     private List<String> tags;
     private List<String> relatedLinks;
     private String author;
-    private LocalDateTime date;
+    private LocalDate date;
 }

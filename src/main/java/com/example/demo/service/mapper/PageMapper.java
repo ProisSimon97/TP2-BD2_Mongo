@@ -1,10 +1,10 @@
 package com.example.demo.service.mapper;
 
-import com.example.demo.model.Page;
-import com.example.demo.model.Post;
+import com.example.demo.domain.Page;
 import org.bson.Document;
 
-import java.time.ZoneId;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class PageMapper {
     public static Page map(Document document) {
@@ -13,7 +13,7 @@ public class PageMapper {
                 .title(document.getString("title"))
                 .text(document.getString("text"))
                 .author(document.getString("author"))
-                .date(document.getDate("date").toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime())
+                .date(LocalDate.parse(document.getString("date"), DateTimeFormatter.ofPattern("yyyy-MM-dd")))
                 .build();
     }
 }

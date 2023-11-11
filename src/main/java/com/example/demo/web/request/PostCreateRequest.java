@@ -1,6 +1,6 @@
 package com.example.demo.web.request;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public record PostCreateRequest(
@@ -10,6 +10,6 @@ public record PostCreateRequest(
          List<String>tags,
          List<String> relatedLinks,
          String author,
-         LocalDateTime date
+         LocalDate date
 ) {
 }

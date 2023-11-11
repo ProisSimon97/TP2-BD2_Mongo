@@ -1,9 +1,11 @@
 package com.example.demo.service.mapper;
 
-import com.example.demo.model.Post;
+import com.example.demo.domain.Post;
+import com.example.demo.domain.PostByAuthor;
 import org.bson.Document;
 
-import java.time.ZoneId;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class PostMapper {
     public static Post map(Document document) {
@@ -15,7 +17,22 @@ public class PostMapper {
                 .tags(document.getList("tags", String.class))
                 .relatedLinks(document.getList("relatedLinks", String.class))
                 .author(document.getString("author"))
-                .date(document.getDate("date").toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime())
+                .date(LocalDate.parse(document.getString("date"), DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+                .build();
+    }
+
+    public static Post mapPartial(Document document) {
+        return Post.builder()
+                .id(document.getObjectId("_id").toString())
+                .title(document.getString("title"))
+                .resume(document.getString("resume"))
+                .build();
+    }
+
+    public static PostByAuthor mapToAuthor(Document document) {
+        return PostByAuthor.builder()
+                .id(document.getString("_id"))
+                .count(document.getInteger("count"))
                 .build();
     }
 }
